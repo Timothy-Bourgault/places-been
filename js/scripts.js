@@ -27,6 +27,7 @@ $(document).ready(function() {
     $(".place").last().click(function() {
     $("#show-places").show();
     $("#show-places h2").text(newPlace.placeName);
+    $(".place-name").text(newPlace.placeName);
     $(".place-location").text(newPlace.placeLocation);
     $(".place-landmark").text(newPlace.placeLandmark);
     $(".place-time").text(newPlace.placeTime);
