@@ -11,24 +11,32 @@ Place.prototype.placeDetails = function() {
 }
 // user interface logic
 $(document).ready(function() {
-  $("form#new-contact").submit(function(event) {
+  $("form#new-place").submit(function(event) {
     event.preventDefault();
 
-    var inputtedFirstName = $("input#new-first-name").val();
-    var inputtedLastName = $("input#new-last-name").val();
+    var inputtedPlaceName = $("input#new-place").val();
+    var inputtedPlaceLocation = $("input#place-location").val();
+    var inputtedPlaceLandmark = $("input#place-landmark").val();
+    var inputtedPlaceTime = $("input#place-time").val();
+    var inputtedPlaceNotes = $("input#place-notes").val();
 
-    var newContact = new Contact(inputtedFirstName, inputtedLastName);
+    var newPlace = new Place(inputtedPlaceName, inputtedPlaceLocation, inputtedPlaceLandmark, inputtedPlaceTime, inputtedPlaceNotes );
 
-    $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
+    $("ul#places").append("<li><span class='place'>" + newPlace.placeDetails() + "</span></li>");
 
-    $(".contact").last().click(function() {
-    $("#show-contact").show();
-    $("#show-contact h2").text(newContact.firstName);
-    $(".first-name").text(newContact.firstName);
-    $(".last-name").text(newContact.lastName);
+    $(".places").last().click(function() {
+    $("#show-places").show();
+    $("#show-places h2").text(newPlace.placeName);
+    $(".place-location").text(newPlace.placeLocation);
+    $(".place-landmark").text(newPlace.placeLandmark);
+    $(".place-time").text(newPlace.placeTime);
+    $(".place-notes").text(newPlace.placeNotes);
   });
 
-  $("input#new-first-name").val("");
-  $("input#new-last-name").val("");
+  $("input#new-place").val("");
+  $("input#place-location").val("");
+  $("input#place-landmark").val("");
+  $("input#place-time").val("");
+  $("input#place-notes").val("");
   });
 });
