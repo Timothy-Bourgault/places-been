@@ -20,11 +20,11 @@ $(document).ready(function() {
     var inputtedPlaceTime = $("input#place-time").val();
     var inputtedPlaceNotes = $("input#place-notes").val();
 
-    var newPlace = new Place(inputtedPlaceName, inputtedPlaceLocation, inputtedPlaceLandmark, inputtedPlaceTime, inputtedPlaceNotes );
+    var newPlace = new Place(inputtedPlaceName, inputtedPlaceLocation, inputtedPlaceLandmark, inputtedPlaceTime, inputtedPlaceNotes);
 
     $("ul#places").append("<li><span class='place'>" + newPlace.placeDetails() + "</span></li>");
 
-    $(".places").last().click(function() {
+    $(".place").last().click(function() {
     $("#show-places").show();
     $("#show-places h2").text(newPlace.placeName);
     $(".place-location").text(newPlace.placeLocation);
